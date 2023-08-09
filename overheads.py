@@ -1,8 +1,8 @@
 from pathlib import Path
 import csv
 
-# Create a path to the CSV file
-csv_file_path = Path("C:/YEAR 1/P4B/TeaGIF/CSV report/Overheads.csv")
+# Define the CSV file path
+csv_file_path = Path(".github/workflows/overheads.csv")
 
 # Function to find the highest overhead
 def find_highest_overhead(file_path):
@@ -23,8 +23,11 @@ def find_highest_overhead(file_path):
 
     return highest_overhead, max_percentage
 
-# Find the highest overhead
-highest_overhead, max_percentage = find_highest_overhead(csv_file_path)
+# The following code will only be executed when this script is run directly, not when imported as a module
+if __name__ == "__main__":
+    # Find the highest overhead
+    highest_overhead, max_percentage = find_highest_overhead(csv_file_path)
 
-# Print the output
-print(f"[HIGHEST OVERHEAD] {highest_overhead.upper()}: {max_percentage:}%")
+    # Write the results to "main.txt" instead of printing to the console
+    with open("main.txt", "a") as output_file:
+        output_file.write(f"[HIGHEST OVERHEAD] {highest_overhead.upper()}: {max_percentage:.2f}%\n")
