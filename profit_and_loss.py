@@ -1,12 +1,12 @@
 from pathlib import Path
 import csv
 
-csv_file_path = Path("C:\YEAR 1\P4B\TeaGIF\CSV report\profit-and-loss-usd.csv")
+csv_file_path = Path(".github/workflows/profit-and-loss-usd.csv")
 
 def find_profit_deficits(csv_file_path):
     profit_deficits = []
 
-    with open(csv_file_path, 'r', encoding='utf-8-sig') as csv_file:
+    with open(csv_file_path, 'r', encoding='UTF-8') as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=',')
 
         previous_profit = float('inf')  # Initial value for comparison
@@ -24,6 +24,3 @@ def find_profit_deficits(csv_file_path):
     return profit_deficits
 
 profit_deficits = find_profit_deficits(csv_file_path)
-
-for day, amount in profit_deficits:
-    print(f"[PROFIT DEFICIT] DAY: {day}, AMOUNT: USD{amount:.2f}")
