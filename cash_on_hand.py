@@ -2,7 +2,7 @@ from pathlib import Path
 import csv
 
 # Provide the absolute path to the CSV file
-csv_file_path = "C:/YEAR 1/P4B/TeaGIF/CSV report/cash-on-hand-usd.csv"
+csv_file_path = ".github/workflows/cash-on-hand-usd.csv"
 
 with open(csv_file_path, mode="r", encoding="UTF-8", newline="") as file:
     reader = csv.reader(file)
